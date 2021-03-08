@@ -38,11 +38,4 @@ object DefinedFunctions extends App {
   }
   println(factorial2(6)) // 720
 
-  def fib(n:Int):Int = n match {
-      case 0 | 1 => n
-      case x => fib(x - 1) + fib(x - 2)
-  }
-
-  println(fib(13))
-
 }
