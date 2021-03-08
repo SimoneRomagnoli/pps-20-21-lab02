@@ -9,7 +9,7 @@ object Currying extends App {
   // curriedMult has actually type: Double => (Double => Double)
   def curriedMult(x: Double)(y: Double): Double = x*y
 
-  //function type is Double => (Double => (Double => Boolean))
+  //function type is Double => Double => Double => Boolean
   def curriedPred(x:Double)(y:Double)(z:Double): Boolean = x match {
     case x if x <= y => y <= z
     case _ => false

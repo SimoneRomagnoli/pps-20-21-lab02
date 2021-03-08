@@ -2,6 +2,17 @@ package u02
 
 object DefinedFunctions extends App {
 
+  def compose(f: Int => Int, g: Int => Int): Int => Int = g(_) match {
+    case x => f(x)
+  }
+
+  def genericsCompose[T](f:T=>T, g:T=>T): T => T = g(_) match {
+    case x => f(x)
+  }
+
+  println("compose(_-1,_*2)(5) must be nine: "+compose(_-1,_*2)(5))
+  println("genericsCompose('Incredible '+_,'Pet '+_)('animal') must be true: "+genericsCompose("Incredible "+_,"pet "+_)("animal"))
+
   // defined function
   def square(d: Double): Double = d*d
   println(square(3.0)) // 9.0
