@@ -2,13 +2,9 @@ package u02
 
 object DefinedFunctions extends App {
 
-  def compose(f: Int => Int, g: Int => Int): Int => Int = g(_) match {
-    case x => f(x)
-  }
+  def compose(f: Int => Int, g: Int => Int): Int => Int = input => f(g(input))
 
-  def genericsCompose[T](f:T=>T, g:T=>T): T => T = g(_) match {
-    case x => f(x)
-  }
+  def genericsCompose[T](f:T=>T, g:T=>T): T => T = input => f(g(input))
 
   println("compose(_-1,_*2)(5) must be nine: "+compose(_-1,_*2)(5))
   println("genericsCompose('Incredible '+_,'Pet '+_)('animal') must be true: "+genericsCompose("Incredible "+_,"pet "+_)("animal"))
@@ -48,4 +44,12 @@ object DefinedFunctions extends App {
     _fact(n, 1)
   }
   println(factorial2(6)) // 720
+
+  def fib(n:Int):Int = n match {
+      case 0 | 1 => n
+      case x => fib(x - 1) + fib(x - 2)
+  }
+
+  println(fib(13))
+
 }
