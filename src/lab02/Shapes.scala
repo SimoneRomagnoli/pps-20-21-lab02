@@ -15,4 +15,10 @@ object Shapes {
     case Square(e) => 4*e
   }
 
+  def area(s:Shape): Double = s match {
+    case Rectangle(h, w) => h*w
+    case Circle(r) => pi*r*r
+    case Square(e) => e*e
+  }
+
 }
