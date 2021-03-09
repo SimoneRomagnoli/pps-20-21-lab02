@@ -27,6 +27,10 @@ object ExtendedOptionals extends App {
       case _ => None()
     }
 
+    def map[A, B](opt: Option[A])(transform:A => B): Option[B] = opt match {
+      case Some(a) => Some(transform(a))
+      case _ => None()
+    }
 
   }
 
