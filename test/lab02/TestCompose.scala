@@ -15,6 +15,15 @@ class TestCompose {
   val not:Boolean => Boolean = !_
   val useless:Boolean => Boolean = _ || false
 
+  val even = "even"
+  val odd = "odd"
+
+  val isEven: Int => Boolean = _%2==0
+  val printEven: Boolean => String = {
+    case true => even
+    case false => odd
+  }
+
   @Test def testCompose(): Unit = {
     assertEquals(output, compose.compose(increment, timesTwo)(input))
   }
@@ -22,5 +31,6 @@ class TestCompose {
   @Test def testGenericsCompose(): Unit = {
     assertEquals(output, compose.genericsCompose(increment, timesTwo)(input))
     assertEquals(true, compose.genericsCompose(not, useless)(false))
+    assertEquals(even, compose.genericsCompose(printEven, isEven)(input))
   }
 }
