@@ -4,7 +4,6 @@ import lab02.BTreesTraversal.Tree._
 import org.junit.jupiter.api.Assertions._
 import org.junit.jupiter.api.Test
 
-
 class TestBTreeTraversal {
 
   val tree = Branch(Branch(Leaf(1),Leaf(2)),Leaf(1))
